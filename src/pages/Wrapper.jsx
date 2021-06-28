@@ -1,13 +1,15 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import Header from '../components/header/Header';
 import HomePage from './HomePage';
 
 export default function Wrapper() {
     return (
         <View style={styles.container}>
-            <Header></Header>
-            <HomePage></HomePage>
+            <ScrollView>
+                <Header></Header>
+                <HomePage></HomePage>
+            </ScrollView>
         </View>
     );
 }
@@ -21,4 +23,3 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
 });
-

@@ -16,8 +16,8 @@ const Navigation = () => {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
     { key: 'home', title: 'Home', icon: 'home' },
-    { key: 'albums', title: 'Albums', icon: 'album' },
-    { key: 'recents', title: 'Recents', icon: 'history' },
+    { key: 'albums', title: 'News', icon: 'album' },
+    { key: 'recents', title: 'Studying', icon: 'book' },
   ]);
 
   const renderScene = BottomNavigation.SceneMap({

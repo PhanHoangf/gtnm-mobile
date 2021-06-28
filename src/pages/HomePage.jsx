@@ -1,11 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, FlatList, ScrollView, Image } from 'react-native';
 import CourseItem from '../components/course-item/CourseItem';
 
 const courses = [
     { courseName: 'Courses 1', price: '$19.99' },
     { courseName: 'Courses 2', price: '$19.99' },
     { courseName: 'Courses 3', price: '$19.99' },
+    { courseName: 'Courses 4', price: '$19.99' },
+    { courseName: 'Courses 5', price: '$19.99' },
+    { courseName: 'Courses 6', price: '$19.99' },
 ];
 
 const HomePage = () => {
@@ -18,13 +21,69 @@ const HomePage = () => {
     });
     return (
         <View style={styles.homeContainer}>
-            <View style={styles.homeTitle}>
-                <Text style={styles.textTitle}>Recommended Courses</Text>
-            </View>
-            <View style={styles.coursesContainer}>
-                {/* <CourseItem></CourseItem> */}
-                {viewCourses}
-            </View>
+                <View style={styles.recommendContainer}>
+                    <View style={styles.homeTitle}>
+                        <Text style={styles.textTitle}>Recommended Courses</Text>
+                    </View>
+                    <View style={styles.coursesContainer}>
+                        <FlatList
+                            horizontal={true}
+                            data={courses}
+                            renderItem={({ item, index }) => {
+                                return (
+                                    <View key={index} style={styles.coursesContainer}>
+                                        <CourseItem
+                                            courseName={item.courseName}
+                                        ></CourseItem>
+                                    </View>
+                                );
+                            }}
+                        />
+                    </View>
+                </View>
+                <View style={styles.sectionContainer}>
+                    <View style={styles.homeTitle}>
+                        <Text style={styles.textTitle}>Trending</Text>
+                    </View>
+                    <View style={styles.coursesContainer}>
+                        <FlatList
+                            horizontal={true}
+                            data={courses}
+                            renderItem={({ item, index }) => {
+                                return (
+                                    <View key={index} style={styles.coursesContainer}>
+                                        <CourseItem
+                                            courseName={item.courseName}
+                                            price={item.price}
+                                        ></CourseItem>
+                                    </View>
+                                );
+                            }}
+                        />
+                    </View>
+                </View>
+                <View style={styles.sectionContainer}>
+                    <View style={styles.homeTitle}>
+                        <Text style={styles.textTitle}>Activity Archive</Text>
+                        <Image style={styles.messengerIcon} source={require('../../assets/messenger.png')} />
+                    </View>
+                    <View style={styles.coursesContainer}>
+                        <FlatList
+                            horizontal={true}
+                            data={courses}
+                            renderItem={({ item, index }) => {
+                                return (
+                                    <View key={index} style={styles.coursesContainer}>
+                                        <CourseItem
+                                            courseName={item.courseName}
+                                            price={item.price}
+                                        ></CourseItem>
+                                    </View>
+                                );
+                            }}
+                        />
+                    </View>
+                </View>
         </View>
     );
 };
@@ -35,6 +94,11 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'flex-start',
         width: '100%',
+    },
+    sectionContainer: {
+        flex: 1,
+        flexDirection: 'column',
+        marginBottom: 20,
     },
     textCenter: {
         textAlign: 'center',
@@ -48,11 +112,19 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         paddingBottom: 10,
         flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
     },
     coursesContainer: {
         flexDirection: 'row',
         paddingLeft: 10,
+        paddingRight: 10,
     },
+    messengerIcon: {
+        width: 67,
+        height: 67,
+        marginRight: 10
+    }
 });
 
 export default HomePage;

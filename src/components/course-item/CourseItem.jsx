@@ -15,7 +15,7 @@ const CourseItem = (props) => {
             </View>
             <View style={styles.courseTitle}>
                 <Text style={[styles.textCenter, styles.textNormal]}>{courseName}</Text>
-                <Text style={[styles.textBold, styles.textCenter]}>{price}</Text>
+                {price ? <Text style={[styles.textBold, styles.textCenter]}>{price}</Text> : <React.Fragment></React.Fragment>}
             </View>
         </View>
     );
@@ -36,10 +36,10 @@ const styles = StyleSheet.create({
     },
     textBold: {
         fontWeight: 'bold',
-        fontSize: 20,
+        fontSize: 15,
     },
     textNormal: {
-        fontSize: 20,
+        fontSize: 15,
         fontWeight: "400",
     },
     textCenter: {

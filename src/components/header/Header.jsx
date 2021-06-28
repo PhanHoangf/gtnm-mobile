@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Button } from 'react-native-paper';
 const Header = () => {
     return (
         <View style={styles.container}>
@@ -7,9 +8,8 @@ const Header = () => {
                 <Text style={styles.headerTitle}>Welcome ...</Text>
             </View>
             <View style={styles.imageContainer}>
-                <Text style={styles.textCenter}>
-                    Lorem ipsum
-                </Text>
+                <Button style={styles.iconButton} icon='camera'></Button>
+                {/* <Text style={styles.textCenter}>Lorem ipsum</Text> */}
             </View>
         </View>
     );
@@ -17,7 +17,7 @@ const Header = () => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1.4,
+        flex: 1.5,
         flexDirection: 'column',
         backgroundColor: '#3EC6FF',
         alignItems: 'center',
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     header: {
-        padding: 5,
+        padding: 20,
         marginTop: 30,
     },
     headerTitle: {
@@ -38,13 +38,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         marginBottom: 'auto',
         width: '90%',
-        height: 170,
+        height: 150,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginBottom: 20,
     },
+   
     textCenter: {
-        textAlign: 'center'
-    }
+        textAlign: 'center',
+    },
 });
 
 export default Header;
