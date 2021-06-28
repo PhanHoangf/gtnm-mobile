@@ -17,7 +17,7 @@ const Header = () => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1.5,
+        flex: 1.4,
         flexDirection: 'column',
         backgroundColor: '#3EC6FF',
         alignItems: 'center',
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     header: {
-        padding: 20,
+        padding: 5,
         marginTop: 30,
     },
     headerTitle: {
