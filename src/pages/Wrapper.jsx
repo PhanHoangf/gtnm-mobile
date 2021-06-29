@@ -1,15 +1,10 @@
 import React from 'react';
 import { StyleSheet, View, ScrollView } from 'react-native';
-import Header from '../components/header/Header';
-import HomePage from './HomePage';
 
-export default function Wrapper() {
+export default function Wrapper(props) {
     return (
         <View style={styles.container}>
-            <ScrollView>
-                <Header></Header>
-                <HomePage></HomePage>
-            </ScrollView>
+            <ScrollView>{props.children}</ScrollView>
         </View>
     );
 }

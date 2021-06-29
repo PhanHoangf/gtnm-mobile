@@ -1,10 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
-import { AppRegistry } from 'react-native';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Button } from 'react-native-paper';
-import Header from './src/components/header/Header';
-import HomePage from './src/pages/HomePage';
+import { AppRegistry, StyleSheet } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { name as appName } from './app.json';
 import Navigation from './src/components/bottom-navigation/Navigation';

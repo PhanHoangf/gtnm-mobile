@@ -12,13 +12,6 @@ const courses = [
 ];
 
 const HomePage = () => {
-    const viewCourses = courses.map((c, index) => {
-        return (
-            <View key={index} style={styles.coursesContainer}>
-                <CourseItem courseName={c.courseName} price={c.price}></CourseItem>
-            </View>
-        );
-    });
     return (
         <View style={styles.homeContainer}>
                 <View style={styles.recommendContainer}>

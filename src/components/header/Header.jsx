@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Button } from 'react-native-paper';
-const Header = () => {
+const Header = (props) => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.headerTitle}>Welcome ...</Text>
+                <Text style={styles.headerTitle}>{props.children}</Text>
             </View>
             <View style={styles.imageContainer}>
                 <Button style={styles.iconButton} icon='camera'></Button>
