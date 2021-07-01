@@ -4,6 +4,7 @@ import Wrapper from '../../pages/Wrapper';
 import HomePage from '../../pages/HomePage';
 import NewsPage from '../../pages/NewsPage';
 import Header from '../header/Header';
+import StudyPage from '../../pages/StudyPage';
 
 const HomeRoute = () => {
     return (
@@ -23,7 +24,15 @@ const NewsRoute = () => {
     );
 };
 
-const RecentsRoute = () => <Text>Recents</Text>;
+const StudyRoute = () => {
+    return (
+        <Wrapper>
+            <Header>Studying</Header>
+            <StudyPage></StudyPage>
+            {/* <NewsPage></NewsPage> */}
+        </Wrapper>
+    );
+};
 
 const Navigation = () => {
     const [index, setIndex] = React.useState(0);
@@ -36,7 +45,7 @@ const Navigation = () => {
     const renderScene = BottomNavigation.SceneMap({
         home: HomeRoute,
         albums: NewsRoute,
-        recents: RecentsRoute,
+        recents: StudyRoute,
     });
 
     return (
@@ -47,6 +56,7 @@ const Navigation = () => {
             barStyle={{ backgroundColor: '#FAFAFA' }}
             activeColor='#2F80ED'
             inactiveColor='#E8E8E8'
+            style={{width: '100%'}}
         />
     );
 };

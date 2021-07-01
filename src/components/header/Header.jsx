@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Button } from 'react-native-paper';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 const Header = (props) => {
     return (
         <View style={styles.container}>
@@ -8,7 +7,10 @@ const Header = (props) => {
                 <Text style={styles.headerTitle}>{props.children}</Text>
             </View>
             <View style={styles.imageContainer}>
-                <Button style={styles.iconButton} icon='camera'></Button>
+                <TouchableOpacity>
+                    <Image style={styles.image} source={require('../../../assets/Play.png')} />
+                </TouchableOpacity>
+                {/* <Button style={styles.iconButton} icon='camera'></Button> */}
                 {/* <Text style={styles.textCenter}>Lorem ipsum</Text> */}
             </View>
         </View>
@@ -43,7 +45,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginBottom: 20,
     },
-   
+    image: {
+        width: 74,
+        height: 74,
+    },
     textCenter: {
         textAlign: 'center',
     },

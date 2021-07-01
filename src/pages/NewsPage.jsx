@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import CourseItem from '../components/course-item/CourseItem';
 
 const courses = [
@@ -49,10 +49,12 @@ const NewsPage = () => {
             <View style={styles.sectionContainer}>
                 <View style={styles.homeTitle}>
                     <Text style={styles.textTitle}>Activity Archive</Text>
-                    <Image
-                        style={styles.messengerIcon}
-                        source={require('../../assets/messenger.png')}
-                    />
+                    <TouchableOpacity>
+                        <Image
+                            style={styles.messengerIcon}
+                            source={require('../../assets/messenger.png')}
+                        />
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.coursesContainer}>
                     <FlatList
@@ -86,7 +88,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         marginBottom: 20,
-        width: '100%'
+        width: '100%',
     },
     sectionOrangeContent: {
         width: '90%',
@@ -98,7 +100,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFCE51',
         borderRadius: 12,
         marginTop: 25,
-        height: 180
+        height: 180,
     },
     sectionBlueContent: {
         width: '90%',
@@ -110,7 +112,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#2F80ED',
         borderRadius: 12,
         marginTop: 25,
-        height: 180
+        height: 180,
     },
     textCenter: {
         textAlign: 'center',
@@ -138,21 +140,19 @@ const styles = StyleSheet.create({
         marginRight: 10,
     },
     textGray: {
-        color: '#C4C4C4'
+        color: '#C4C4C4',
     },
     title: {
         fontWeight: 'bold',
         fontSize: 16,
-        marginBottom: 5
+        marginBottom: 5,
     },
     subTitle: {
         fontWeight: '400',
-        fontSize: 14, 
-        marginBottom: 4
-    }, 
-    bgOrange: {
-         
-    }
+        fontSize: 14,
+        marginBottom: 4,
+    },
+    bgOrange: {},
 });
 
 export default NewsPage;

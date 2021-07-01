@@ -4,7 +4,7 @@ import { StyleSheet, View, ScrollView } from 'react-native';
 export default function Wrapper(props) {
     return (
         <View style={styles.container}>
-            <ScrollView>{props.children}</ScrollView>
+            <ScrollView style={{ flex: 1, alignSelf: 'stretch' }}>{props.children}</ScrollView>
         </View>
     );
 }
@@ -16,5 +16,6 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'center',
         flexDirection: 'column',
+        alignSelf: 'stretch',
     },
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList, ScrollView, Image } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image } from 'react-native';
 import CourseItem from '../components/course-item/CourseItem';
 
 const courses = [
@@ -14,69 +14,72 @@ const courses = [
 const HomePage = () => {
     return (
         <View style={styles.homeContainer}>
-                <View style={styles.recommendContainer}>
-                    <View style={styles.homeTitle}>
-                        <Text style={styles.textTitle}>Recommended Courses</Text>
-                    </View>
-                    <View style={styles.coursesContainer}>
-                        <FlatList
-                            horizontal={true}
-                            data={courses}
-                            renderItem={({ item, index }) => {
-                                return (
-                                    <View key={index} style={styles.coursesContainer}>
-                                        <CourseItem
-                                            courseName={item.courseName}
-                                        ></CourseItem>
-                                    </View>
-                                );
-                            }}
-                        />
-                    </View>
+            <View style={styles.recommendContainer}>
+                <View style={styles.homeTitle}>
+                    <Text style={styles.textTitle}>Recommended Courses</Text>
                 </View>
-                <View style={styles.sectionContainer}>
-                    <View style={styles.homeTitle}>
-                        <Text style={styles.textTitle}>Trending</Text>
-                    </View>
-                    <View style={styles.coursesContainer}>
-                        <FlatList
-                            horizontal={true}
-                            data={courses}
-                            renderItem={({ item, index }) => {
-                                return (
-                                    <View key={index} style={styles.coursesContainer}>
-                                        <CourseItem
-                                            courseName={item.courseName}
-                                            price={item.price}
-                                        ></CourseItem>
-                                    </View>
-                                );
-                            }}
-                        />
-                    </View>
+                <View style={styles.coursesContainer}>
+                    <FlatList
+                        horizontal={true}
+                        data={courses}
+                        renderItem={({ item, index }) => {
+                            return (
+                                <View key={index} style={styles.coursesContainer}>
+                                    <CourseItem courseName={item.courseName}></CourseItem>
+                                </View>
+                            );
+                        }}
+                    />
                 </View>
-                <View style={styles.sectionContainer}>
-                    <View style={styles.homeTitle}>
-                        <Text style={styles.textTitle}>Activity Archive</Text>
-                        <Image style={styles.messengerIcon} source={require('../../assets/messenger.png')} />
-                    </View>
-                    <View style={styles.coursesContainer}>
-                        <FlatList
-                            horizontal={true}
-                            data={courses}
-                            renderItem={({ item, index }) => {
-                                return (
-                                    <View key={index} style={styles.coursesContainer}>
-                                        <CourseItem
-                                            courseName={item.courseName}
-                                            price={item.price}
-                                        ></CourseItem>
-                                    </View>
-                                );
-                            }}
-                        />
-                    </View>
+            </View>
+            <View style={styles.sectionContainer}>
+                <View style={styles.homeTitle}>
+                    <Text style={styles.textTitle}>Trending</Text>
                 </View>
+                <View style={styles.coursesContainer}>
+                    <FlatList
+                        horizontal={true}
+                        data={courses}
+                        renderItem={({ item, index }) => {
+                            return (
+                                <View key={index} style={styles.coursesContainer}>
+                                    <CourseItem
+                                        courseName={item.courseName}
+                                        price={item.price}
+                                    ></CourseItem>
+                                </View>
+                            );
+                        }}
+                    />
+                </View>
+            </View>
+            <View style={styles.sectionContainer}>
+                <View style={styles.homeTitle}>
+                    <Text style={styles.textTitle}>Activity Archive</Text>
+                    <TouchableOpacity>
+                        <Image
+                            style={styles.messengerIcon}
+                            source={require('../../assets/messenger.png')}
+                        />
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.coursesContainer}>
+                    <FlatList
+                        horizontal={true}
+                        data={courses}
+                        renderItem={({ item, index }) => {
+                            return (
+                                <View key={index} style={styles.coursesContainer}>
+                                    <CourseItem
+                                        courseName={item.courseName}
+                                        price={item.price}
+                                    ></CourseItem>
+                                </View>
+                            );
+                        }}
+                    />
+                </View>
+            </View>
         </View>
     );
 };
@@ -106,7 +109,7 @@ const styles = StyleSheet.create({
         paddingBottom: 10,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     coursesContainer: {
         flexDirection: 'row',
@@ -114,10 +117,10 @@ const styles = StyleSheet.create({
         paddingRight: 10,
     },
     messengerIcon: {
-        width: 67,
-        height: 67,
-        marginRight: 10
-    }
+        width: 50,
+        height: 50,
+        marginRight: 10,
+    },
 });
 
 export default HomePage;
