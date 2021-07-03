@@ -5,8 +5,10 @@ import HomePage from '../../pages/HomePage';
 import NewsPage from '../../pages/NewsPage';
 import Header from '../header/Header';
 import StudyPage from '../../pages/StudyPage';
+import HeaderAction from '../header/HeaderAction';
+import WatchPage from '../../pages/WatchPage';
 
-const HomeRoute = () => {
+const HomeRoute = (props) => {
     return (
         <Wrapper>
             <Header>WELCOME GENIOUS</Header>
@@ -15,20 +17,33 @@ const HomeRoute = () => {
     );
 };
 
-const NewsRoute = () => {
+const NewsRoute = (props) => {
     return (
         <Wrapper>
-            <Header>NEWS</Header>
+            <HeaderAction title='NEWS' />
+            <Header></Header>
             <NewsPage></NewsPage>
         </Wrapper>
     );
 };
 
-const StudyRoute = () => {
+const StudyRoute = (props) => {
     return (
         <Wrapper>
-            <Header>Studying</Header>
-            <StudyPage></StudyPage>
+            <HeaderAction title='STUDYING' />
+            <Header></Header>
+            <StudyPage route={props}></StudyPage>
+            {/* <NewsPage></NewsPage> */}
+        </Wrapper>
+    );
+};
+
+const WatchingRoute = (props) => {
+    return (
+        <Wrapper>
+            <HeaderAction title='WATCHING' />
+            <Header></Header>
+            <WatchPage route={props}/>
             {/* <NewsPage></NewsPage> */}
         </Wrapper>
     );
@@ -38,15 +53,23 @@ const Navigation = () => {
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
         { key: 'home', title: 'Home', icon: 'home' },
-        { key: 'albums', title: 'News', icon: 'album' },
-        { key: 'recents', title: 'Studying', icon: 'book' },
+        { key: 'news', title: 'News', icon: 'album' },
+        { key: 'study', title: 'Studying', icon: 'book' },
+        { key: 'watch', title: 'Watch', icon: 'book' },
     ]);
 
-    const renderScene = BottomNavigation.SceneMap({
-        home: HomeRoute,
-        albums: NewsRoute,
-        recents: StudyRoute,
-    });
+    const renderScene = ({ route, jumpTo }) => {
+        switch (route.key) {
+            case 'home':
+                return <HomeRoute jumpTo={jumpTo} />;
+            case 'news':
+                return <NewsRoute jumpTo={jumpTo} />;
+            case 'study':
+                return <StudyRoute jumpTo={jumpTo} />;
+            case 'watch':
+                return <WatchingRoute jumpTo={jumpTo} />;
+        }
+    };
 
     return (
         <BottomNavigation
@@ -56,7 +79,7 @@ const Navigation = () => {
             barStyle={{ backgroundColor: '#FAFAFA' }}
             activeColor='#2F80ED'
             inactiveColor='#E8E8E8'
-            style={{width: '100%'}}
+            style={{ width: '100%' }}
         />
     );
 };

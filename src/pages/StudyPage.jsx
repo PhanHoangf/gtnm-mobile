@@ -39,10 +39,13 @@ const courseVideo = [
     },
 ];
 
-const StudyPage = () => {
+const StudyPage = (props) => {
+    const onPress = () => {
+        props.route.jumpTo('watch')
+    }
     const viewCourses = courseVideo.map((c, index) => {
         return (
-            <TouchableOpacity key={index}>
+            <TouchableOpacity onPress={onPress} key={index}>
                 <Card mode='outlined' style={styles.cardContainer}>
                     <Card.Cover source={{ uri: c.thumbNail }} />
                     <Card.Content>
